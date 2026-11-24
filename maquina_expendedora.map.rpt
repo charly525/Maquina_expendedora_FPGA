@@ -1,0 +1,1361 @@
+Analysis & Synthesis report for maquina_expendedora
+Mon Nov 23 15:16:43 2026
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |maquina_expendedora|tft_ili9225:u_tft|seq
+ 10. State Machine - |maquina_expendedora|tft_ili9225:u_tft|spi_est
+ 11. State Machine - |maquina_expendedora|fsm_expendedora:u_fsm|estado
+ 12. State Machine - |maquina_expendedora|entrada_ficha:u_ficha|estado
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for tft_ili9225:u_tft|altsyncram:u_rom_pantallas|altsyncram_gas3:auto_generated
+ 18. Source assignments for tft_ili9225:u_tft|altsyncram:u_rom_digitos|altsyncram_72s3:auto_generated
+ 19. Parameter Settings for User Entity Instance: entrada_ficha:u_ficha
+ 20. Parameter Settings for User Entity Instance: teclado_4x4:u_teclado
+ 21. Parameter Settings for User Entity Instance: fsm_expendedora:u_fsm
+ 22. Parameter Settings for User Entity Instance: motor_paso:\gen_motores:1:u_motor
+ 23. Parameter Settings for User Entity Instance: motor_paso:\gen_motores:2:u_motor
+ 24. Parameter Settings for User Entity Instance: motor_paso:\gen_motores:3:u_motor
+ 25. Parameter Settings for User Entity Instance: motor_paso:\gen_motores:4:u_motor
+ 26. Parameter Settings for User Entity Instance: motor_paso:\gen_motores:5:u_motor
+ 27. Parameter Settings for User Entity Instance: motor_paso:\gen_motores:6:u_motor
+ 28. Parameter Settings for User Entity Instance: escenas:u_escenas
+ 29. Parameter Settings for User Entity Instance: tft_ili9225:u_tft
+ 30. Parameter Settings for User Entity Instance: tft_ili9225:u_tft|altsyncram:u_rom_pantallas
+ 31. Parameter Settings for User Entity Instance: tft_ili9225:u_tft|altsyncram:u_rom_digitos
+ 32. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 33. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 34. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 35. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 36. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 37. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 38. Parameter Settings for Inferred Entity Instance: tft_ili9225:u_tft|lpm_mult:Mult0
+ 39. altsyncram Parameter Settings by Entity Instance
+ 40. lpm_mult Parameter Settings by Entity Instance
+ 41. Port Connectivity Checks: "deco7seg:u_hex3"
+ 42. Port Connectivity Checks: "fsm_expendedora:u_fsm"
+ 43. Elapsed Time Per Partition
+ 44. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Nov 23 15:16:43 2026      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; maquina_expendedora                        ;
+; Top-level Entity Name              ; maquina_expendedora                        ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 1,665                                      ;
+;     Total combinational functions  ; 1,624                                      ;
+;     Dedicated logic registers      ; 640                                        ;
+; Total registers                    ; 640                                        ;
+; Total pins                         ; 94                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 356,160                                    ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                          ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+; Option                                                                     ; Setting             ; Default Value       ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+; Device                                                                     ; EP3C16F484C6        ;                     ;
+; Top-level entity name                                                      ; maquina_expendedora ; maquina_expendedora ;
+; Family name                                                                ; Cyclone III         ; Cyclone IV GX       ;
+; Use smart compilation                                                      ; Off                 ; Off                 ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                  ; On                  ;
+; Enable compact report table                                                ; Off                 ; Off                 ;
+; Restructure Multiplexers                                                   ; Auto                ; Auto                ;
+; Create Debugging Nodes for IP Cores                                        ; Off                 ; Off                 ;
+; Preserve fewer node names                                                  ; On                  ; On                  ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                 ; Off                 ;
+; Verilog Version                                                            ; Verilog_2001        ; Verilog_2001        ;
+; VHDL Version                                                               ; VHDL_1993           ; VHDL_1993           ;
+; State Machine Processing                                                   ; Auto                ; Auto                ;
+; Safe State Machine                                                         ; Off                 ; Off                 ;
+; Extract Verilog State Machines                                             ; On                  ; On                  ;
+; Extract VHDL State Machines                                                ; On                  ; On                  ;
+; Ignore Verilog initial constructs                                          ; Off                 ; Off                 ;
+; Iteration limit for constant Verilog loops                                 ; 5000                ; 5000                ;
+; Iteration limit for non-constant Verilog loops                             ; 250                 ; 250                 ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                  ; On                  ;
+; Infer RAMs from Raw Logic                                                  ; On                  ; On                  ;
+; Parallel Synthesis                                                         ; On                  ; On                  ;
+; DSP Block Balancing                                                        ; Auto                ; Auto                ;
+; NOT Gate Push-Back                                                         ; On                  ; On                  ;
+; Power-Up Don't Care                                                        ; On                  ; On                  ;
+; Remove Redundant Logic Cells                                               ; Off                 ; Off                 ;
+; Remove Duplicate Registers                                                 ; On                  ; On                  ;
+; Ignore CARRY Buffers                                                       ; Off                 ; Off                 ;
+; Ignore CASCADE Buffers                                                     ; Off                 ; Off                 ;
+; Ignore GLOBAL Buffers                                                      ; Off                 ; Off                 ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                 ; Off                 ;
+; Ignore LCELL Buffers                                                       ; Off                 ; Off                 ;
+; Ignore SOFT Buffers                                                        ; On                  ; On                  ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                 ; Off                 ;
+; Optimization Technique                                                     ; Balanced            ; Balanced            ;
+; Carry Chain Length                                                         ; 70                  ; 70                  ;
+; Auto Carry Chains                                                          ; On                  ; On                  ;
+; Auto Open-Drain Pins                                                       ; On                  ; On                  ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                 ; Off                 ;
+; Auto ROM Replacement                                                       ; On                  ; On                  ;
+; Auto RAM Replacement                                                       ; On                  ; On                  ;
+; Auto DSP Block Replacement                                                 ; On                  ; On                  ;
+; Auto Shift Register Replacement                                            ; Auto                ; Auto                ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                ; Auto                ;
+; Auto Clock Enable Replacement                                              ; On                  ; On                  ;
+; Strict RAM Replacement                                                     ; Off                 ; Off                 ;
+; Allow Synchronous Control Signals                                          ; On                  ; On                  ;
+; Force Use of Synchronous Clear Signals                                     ; Off                 ; Off                 ;
+; Auto RAM Block Balancing                                                   ; On                  ; On                  ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                 ; Off                 ;
+; Auto Resource Sharing                                                      ; Off                 ; Off                 ;
+; Allow Any RAM Size For Recognition                                         ; Off                 ; Off                 ;
+; Allow Any ROM Size For Recognition                                         ; Off                 ; Off                 ;
+; Allow Any Shift Register Size For Recognition                              ; Off                 ; Off                 ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                  ; On                  ;
+; Ignore translate_off and synthesis_off directives                          ; Off                 ; Off                 ;
+; Timing-Driven Synthesis                                                    ; On                  ; On                  ;
+; Report Parameter Settings                                                  ; On                  ; On                  ;
+; Report Source Assignments                                                  ; On                  ; On                  ;
+; Report Connectivity Checks                                                 ; On                  ; On                  ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                 ; Off                 ;
+; Synchronization Register Chain Length                                      ; 2                   ; 2                   ;
+; PowerPlay Power Optimization                                               ; Normal compilation  ; Normal compilation  ;
+; HDL message level                                                          ; Level2              ; Level2              ;
+; Suppress Register Optimization Related Messages                            ; Off                 ; Off                 ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                ; 5000                ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                ; 5000                ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                 ; 100                 ;
+; Clock MUX Protection                                                       ; On                  ; On                  ;
+; Auto Gated Clock Conversion                                                ; Off                 ; Off                 ;
+; Block Design Naming                                                        ; Auto                ; Auto                ;
+; SDC constraint protection                                                  ; Off                 ; Off                 ;
+; Synthesis Effort                                                           ; Auto                ; Auto                ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                  ; On                  ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                 ; Off                 ;
+; Analysis & Synthesis Message Level                                         ; Medium              ; Medium              ;
+; Disable Register Merging Across Hierarchies                                ; Auto                ; Auto                ;
+; Resource Aware Inference For Block RAM                                     ; On                  ; On                  ;
+; Synthesis Seed                                                             ; 1                   ; 1                   ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 22     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                     ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                             ; Library ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------------+---------+
+; maquina_pkg.vhd                  ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/maquina_pkg.vhd            ;         ;
+; pantallas_pkg.vhd                ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/pantallas_pkg.vhd          ;         ;
+; entrada_ficha.vhd                ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/entrada_ficha.vhd          ;         ;
+; teclado_4x4.vhd                  ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/teclado_4x4.vhd            ;         ;
+; motor_paso.vhd                   ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/motor_paso.vhd             ;         ;
+; fsm_expendedora.vhd              ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/fsm_expendedora.vhd        ;         ;
+; deco7seg.vhd                     ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/deco7seg.vhd               ;         ;
+; escenas.vhd                      ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/escenas.vhd                ;         ;
+; tft_ili9225.vhd                  ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/tft_ili9225.vhd            ;         ;
+; maquina_expendedora.vhd          ; yes             ; User VHDL File                   ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/maquina_expendedora.vhd    ;         ;
+; pantallas.mif                    ; yes             ; User Memory Initialization File  ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/pantallas.mif              ;         ;
+; digitos.mif                      ; yes             ; User Memory Initialization File  ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/digitos.mif                ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/altsyncram.tdf                            ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/stratix_ram_block.inc                     ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_mux.inc                               ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_decode.inc                            ;         ;
+; aglobal131.inc                   ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/aglobal131.inc                            ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/a_rdenreg.inc                             ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/altrom.inc                                ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/altram.inc                                ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/altdpram.inc                              ;         ;
+; db/altsyncram_gas3.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/altsyncram_gas3.tdf     ;         ;
+; db/decode_m8a.tdf                ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/decode_m8a.tdf          ;         ;
+; db/mux_9nb.tdf                   ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/mux_9nb.tdf             ;         ;
+; db/altsyncram_72s3.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/altsyncram_72s3.tdf     ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_divide.tdf                            ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/abs_divider.inc                           ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/sign_div_unsign.inc                       ;         ;
+; db/lpm_divide_98m.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/lpm_divide_98m.tdf      ;         ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/sign_div_unsign_7kh.tdf ;         ;
+; db/alt_u_div_p2f.tdf             ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/alt_u_div_p2f.tdf       ;         ;
+; db/add_sub_unc.tdf               ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/add_sub_unc.tdf         ;         ;
+; db/add_sub_vnc.tdf               ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/add_sub_vnc.tdf         ;         ;
+; db/lpm_divide_h8m.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/lpm_divide_h8m.tdf      ;         ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/sign_div_unsign_fkh.tdf ;         ;
+; db/alt_u_div_93f.tdf             ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/alt_u_div_93f.tdf       ;         ;
+; db/lpm_divide_6gm.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/lpm_divide_6gm.tdf      ;         ;
+; db/lpm_divide_agm.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/lpm_divide_agm.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_13f.tdf             ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/alt_u_div_13f.tdf       ;         ;
+; db/lpm_divide_dgm.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/lpm_divide_dgm.tdf      ;         ;
+; db/sign_div_unsign_ekh.tdf       ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/sign_div_unsign_ekh.tdf ;         ;
+; db/alt_u_div_73f.tdf             ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/alt_u_div_73f.tdf       ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_mult.tdf                              ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_add_sub.inc                           ;         ;
+; multcore.inc                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/multcore.inc                              ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/bypassff.inc                              ;         ;
+; altshift.inc                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/altshift.inc                              ;         ;
+; multcore.tdf                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/multcore.tdf                              ;         ;
+; csa_add.inc                      ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/csa_add.inc                               ;         ;
+; mpar_add.inc                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/mpar_add.inc                              ;         ;
+; muleabz.inc                      ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/muleabz.inc                               ;         ;
+; mul_lfrg.inc                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/mul_lfrg.inc                              ;         ;
+; mul_boothc.inc                   ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/mul_boothc.inc                            ;         ;
+; alt_ded_mult.inc                 ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/alt_ded_mult.inc                          ;         ;
+; alt_ded_mult_y.inc               ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/alt_ded_mult_y.inc                        ;         ;
+; dffpipe.inc                      ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/dffpipe.inc                               ;         ;
+; mpar_add.tdf                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/mpar_add.tdf                              ;         ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/lpm_add_sub.tdf                           ;         ;
+; addcore.inc                      ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/addcore.inc                               ;         ;
+; look_add.inc                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/look_add.inc                              ;         ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc                   ;         ;
+; db/add_sub_3jh.tdf               ; yes             ; Auto-Generated Megafunction      ; C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl/db/add_sub_3jh.tdf         ;         ;
+; altshift.tdf                     ; yes             ; Megafunction                     ; c:/altera/13.1/quartus/libraries/megafunctions/altshift.tdf                              ;         ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 1,665          ;
+;                                             ;                ;
+; Total combinational functions               ; 1624           ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 676            ;
+;     -- 3 input functions                    ; 278            ;
+;     -- <=2 input functions                  ; 670            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 1083           ;
+;     -- arithmetic mode                      ; 541            ;
+;                                             ;                ;
+; Total registers                             ; 640            ;
+;     -- Dedicated logic registers            ; 640            ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 94             ;
+; Total memory bits                           ; 356160         ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 688            ;
+; Total fan-out                               ; 7751           ;
+; Average fan-out                             ; 3.10           ;
++---------------------------------------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                  ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                      ; Library Name ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |maquina_expendedora                           ; 1624 (38)         ; 640 (15)     ; 356160      ; 0            ; 0       ; 0         ; 94   ; 0            ; |maquina_expendedora                                                                                                                     ; work         ;
+;    |deco7seg:u_hex0|                           ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|deco7seg:u_hex0                                                                                                     ; work         ;
+;    |deco7seg:u_hex1|                           ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|deco7seg:u_hex1                                                                                                     ; work         ;
+;    |deco7seg:u_hex2|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|deco7seg:u_hex2                                                                                                     ; work         ;
+;    |deco7seg:u_hex3|                           ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|deco7seg:u_hex3                                                                                                     ; work         ;
+;    |entrada_ficha:u_ficha|                     ; 49 (49)           ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|entrada_ficha:u_ficha                                                                                               ; work         ;
+;    |escenas:u_escenas|                         ; 77 (77)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|escenas:u_escenas                                                                                                   ; work         ;
+;    |fsm_expendedora:u_fsm|                     ; 171 (171)         ; 70 (70)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|fsm_expendedora:u_fsm                                                                                               ; work         ;
+;    |lpm_divide:Div0|                           ; 25 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div0                                                                                                     ; work         ;
+;       |lpm_divide_dgm:auto_generated|          ; 25 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div0|lpm_divide_dgm:auto_generated                                                                       ; work         ;
+;          |sign_div_unsign_ekh:divider|         ; 25 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div0|lpm_divide_dgm:auto_generated|sign_div_unsign_ekh:divider                                           ; work         ;
+;             |alt_u_div_73f:divider|            ; 25 (25)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div0|lpm_divide_dgm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_73f:divider                     ; work         ;
+;    |lpm_divide:Div1|                           ; 56 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div1                                                                                                     ; work         ;
+;       |lpm_divide_agm:auto_generated|          ; 56 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div1|lpm_divide_agm:auto_generated                                                                       ; work         ;
+;          |sign_div_unsign_bkh:divider|         ; 56 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div1|lpm_divide_agm:auto_generated|sign_div_unsign_bkh:divider                                           ; work         ;
+;             |alt_u_div_13f:divider|            ; 56 (56)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div1|lpm_divide_agm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_13f:divider                     ; work         ;
+;    |lpm_divide:Div2|                           ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div2                                                                                                     ; work         ;
+;       |lpm_divide_6gm:auto_generated|          ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div2|lpm_divide_6gm:auto_generated                                                                       ; work         ;
+;          |sign_div_unsign_7kh:divider|         ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div2|lpm_divide_6gm:auto_generated|sign_div_unsign_7kh:divider                                           ; work         ;
+;             |alt_u_div_p2f:divider|            ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Div2|lpm_divide_6gm:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_p2f:divider                     ; work         ;
+;    |lpm_divide:Mod0|                           ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod0                                                                                                     ; work         ;
+;       |lpm_divide_h8m:auto_generated|          ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod0|lpm_divide_h8m:auto_generated                                                                       ; work         ;
+;          |sign_div_unsign_fkh:divider|         ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod0|lpm_divide_h8m:auto_generated|sign_div_unsign_fkh:divider                                           ; work         ;
+;             |alt_u_div_93f:divider|            ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod0|lpm_divide_h8m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_93f:divider                     ; work         ;
+;    |lpm_divide:Mod1|                           ; 74 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod1                                                                                                     ; work         ;
+;       |lpm_divide_h8m:auto_generated|          ; 74 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod1|lpm_divide_h8m:auto_generated                                                                       ; work         ;
+;          |sign_div_unsign_fkh:divider|         ; 74 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod1|lpm_divide_h8m:auto_generated|sign_div_unsign_fkh:divider                                           ; work         ;
+;             |alt_u_div_93f:divider|            ; 74 (74)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod1|lpm_divide_h8m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_93f:divider                     ; work         ;
+;    |lpm_divide:Mod2|                           ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod2                                                                                                     ; work         ;
+;       |lpm_divide_98m:auto_generated|          ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod2|lpm_divide_98m:auto_generated                                                                       ; work         ;
+;          |sign_div_unsign_7kh:divider|         ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod2|lpm_divide_98m:auto_generated|sign_div_unsign_7kh:divider                                           ; work         ;
+;             |alt_u_div_p2f:divider|            ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|lpm_divide:Mod2|lpm_divide_98m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_p2f:divider                     ; work         ;
+;    |motor_paso:\gen_motores:1:u_motor|         ; 61 (61)           ; 39 (39)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|motor_paso:\gen_motores:1:u_motor                                                                                   ; work         ;
+;    |motor_paso:\gen_motores:2:u_motor|         ; 60 (60)           ; 39 (39)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|motor_paso:\gen_motores:2:u_motor                                                                                   ; work         ;
+;    |motor_paso:\gen_motores:3:u_motor|         ; 60 (60)           ; 39 (39)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|motor_paso:\gen_motores:3:u_motor                                                                                   ; work         ;
+;    |motor_paso:\gen_motores:4:u_motor|         ; 60 (60)           ; 39 (39)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|motor_paso:\gen_motores:4:u_motor                                                                                   ; work         ;
+;    |motor_paso:\gen_motores:5:u_motor|         ; 60 (60)           ; 39 (39)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|motor_paso:\gen_motores:5:u_motor                                                                                   ; work         ;
+;    |motor_paso:\gen_motores:6:u_motor|         ; 60 (60)           ; 39 (39)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|motor_paso:\gen_motores:6:u_motor                                                                                   ; work         ;
+;    |teclado_4x4:u_teclado|                     ; 76 (76)           ; 49 (49)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|teclado_4x4:u_teclado                                                                                               ; work         ;
+;    |tft_ili9225:u_tft|                         ; 609 (559)         ; 211 (207)    ; 356160      ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft                                                                                                   ; work         ;
+;       |altsyncram:u_rom_digitos|               ; 0 (0)             ; 0 (0)        ; 7680        ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|altsyncram:u_rom_digitos                                                                          ; work         ;
+;          |altsyncram_72s3:auto_generated|      ; 0 (0)             ; 0 (0)        ; 7680        ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|altsyncram:u_rom_digitos|altsyncram_72s3:auto_generated                                           ; work         ;
+;       |altsyncram:u_rom_pantallas|             ; 27 (0)            ; 4 (0)        ; 348480      ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|altsyncram:u_rom_pantallas                                                                        ; work         ;
+;          |altsyncram_gas3:auto_generated|      ; 27 (0)            ; 4 (4)        ; 348480      ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|altsyncram:u_rom_pantallas|altsyncram_gas3:auto_generated                                         ; work         ;
+;             |decode_m8a:rden_decode|           ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|altsyncram:u_rom_pantallas|altsyncram_gas3:auto_generated|decode_m8a:rden_decode                  ; work         ;
+;             |mux_9nb:mux2|                     ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|altsyncram:u_rom_pantallas|altsyncram_gas3:auto_generated|mux_9nb:mux2                            ; work         ;
+;       |lpm_mult:Mult0|                         ; 23 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|lpm_mult:Mult0                                                                                    ; work         ;
+;          |multcore:mult_core|                  ; 23 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|lpm_mult:Mult0|multcore:mult_core                                                                 ; work         ;
+;             |mpar_add:padder|                  ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                 ; work         ;
+;                |lpm_add_sub:adder[0]|          ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                            ; work         ;
+;                   |add_sub_3jh:auto_generated| ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |maquina_expendedora|tft_ili9225:u_tft|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_3jh:auto_generated ; work         ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                          ;
++----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+---------------+
+; Name                                                                                   ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF           ;
++----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+---------------+
+; tft_ili9225:u_tft|altsyncram:u_rom_digitos|altsyncram_72s3:auto_generated|ALTSYNCRAM   ; AUTO ; ROM  ; 1920         ; 4            ; --           ; --           ; 7680   ; digitos.mif   ;
+; tft_ili9225:u_tft|altsyncram:u_rom_pantallas|altsyncram_gas3:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 87120        ; 4            ; --           ; --           ; 348480 ; pantallas.mif ;
++----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+---------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------+
+; State Machine - |maquina_expendedora|tft_ili9225:u_tft|seq                                                      ;
++------------------+---------------+---------------+-------------+------------+------------------+----------------+
+; Name             ; seq.Q_PIXELES ; seq.Q_VENTANA ; seq.Q_PAUSA ; seq.Q_INIT ; seq.Q_RST_ESPERA ; seq.Q_RST_BAJO ;
++------------------+---------------+---------------+-------------+------------+------------------+----------------+
+; seq.Q_RST_BAJO   ; 0             ; 0             ; 0           ; 0          ; 0                ; 0              ;
+; seq.Q_RST_ESPERA ; 0             ; 0             ; 0           ; 0          ; 1                ; 1              ;
+; seq.Q_INIT       ; 0             ; 0             ; 0           ; 1          ; 0                ; 1              ;
+; seq.Q_PAUSA      ; 0             ; 0             ; 1           ; 0          ; 0                ; 1              ;
+; seq.Q_VENTANA    ; 0             ; 1             ; 0           ; 0          ; 0                ; 1              ;
+; seq.Q_PIXELES    ; 1             ; 0             ; 0           ; 0          ; 0                ; 1              ;
++------------------+---------------+---------------+-------------+------------+------------------+----------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |maquina_expendedora|tft_ili9225:u_tft|spi_est                    ;
++----------------+---------------+----------------+----------------+----------------+
+; Name           ; spi_est.S_FIN ; spi_est.S_ALTO ; spi_est.S_BAJO ; spi_est.S_IDLE ;
++----------------+---------------+----------------+----------------+----------------+
+; spi_est.S_IDLE ; 0             ; 0              ; 0              ; 0              ;
+; spi_est.S_BAJO ; 0             ; 0              ; 1              ; 1              ;
+; spi_est.S_ALTO ; 0             ; 1              ; 0              ; 1              ;
+; spi_est.S_FIN  ; 1             ; 0              ; 0              ; 1              ;
++----------------+---------------+----------------+----------------+----------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |maquina_expendedora|fsm_expendedora:u_fsm|estado                                                                                                             ;
++------------------+-----------------+--------------+----------------+------------------+----------------+----------------+------------------+------------------+---------------+
+; Name             ; estado.MANTENIM ; estado.SOBRA ; estado.AGOTADO ; estado.SIN_SALDO ; estado.GRACIAS ; estado.GIRANDO ; estado.DISPENSAR ; estado.VERIFICAR ; estado.REPOSO ;
++------------------+-----------------+--------------+----------------+------------------+----------------+----------------+------------------+------------------+---------------+
+; estado.REPOSO    ; 0               ; 0            ; 0              ; 0                ; 0              ; 0              ; 0                ; 0                ; 0             ;
+; estado.VERIFICAR ; 0               ; 0            ; 0              ; 0                ; 0              ; 0              ; 0                ; 1                ; 1             ;
+; estado.DISPENSAR ; 0               ; 0            ; 0              ; 0                ; 0              ; 0              ; 1                ; 0                ; 1             ;
+; estado.GIRANDO   ; 0               ; 0            ; 0              ; 0                ; 0              ; 1              ; 0                ; 0                ; 1             ;
+; estado.GRACIAS   ; 0               ; 0            ; 0              ; 0                ; 1              ; 0              ; 0                ; 0                ; 1             ;
+; estado.SIN_SALDO ; 0               ; 0            ; 0              ; 1                ; 0              ; 0              ; 0                ; 0                ; 1             ;
+; estado.AGOTADO   ; 0               ; 0            ; 1              ; 0                ; 0              ; 0              ; 0                ; 0                ; 1             ;
+; estado.SOBRA     ; 0               ; 1            ; 0              ; 0                ; 0              ; 0              ; 0                ; 0                ; 1             ;
+; estado.MANTENIM  ; 1               ; 0            ; 0              ; 0                ; 0              ; 0              ; 0                ; 0                ; 1             ;
++------------------+-----------------+--------------+----------------+------------------+----------------+----------------+------------------+------------------+---------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |maquina_expendedora|entrada_ficha:u_ficha|estado                  ;
++-----------------+---------------+----------------+-----------------+---------------+
+; Name            ; estado.SOLTAR ; estado.BLOQUEO ; estado.CONFIRMA ; estado.ESPERA ;
++-----------------+---------------+----------------+-----------------+---------------+
+; estado.ESPERA   ; 0             ; 0              ; 0               ; 0             ;
+; estado.CONFIRMA ; 0             ; 0              ; 1               ; 1             ;
+; estado.BLOQUEO  ; 0             ; 1              ; 0               ; 1             ;
+; estado.SOLTAR   ; 1             ; 0              ; 0               ; 1             ;
++-----------------+---------------+----------------+-----------------+---------------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++----------------------------------------+-----------------------------------------+
+; Register name                          ; Reason for Removal                      ;
++----------------------------------------+-----------------------------------------+
+; tft_ili9225:u_tft|e_ov_n[1]            ; Stuck at VCC due to stuck port data_in  ;
+; tft_ili9225:u_tft|e_ov_y[1]            ; Stuck at GND due to stuck port data_in  ;
+; tft_ili9225:u_tft|e_ov_x[6]            ; Stuck at GND due to stuck port data_in  ;
+; tft_ili9225:u_tft|ms_obj[15]           ; Stuck at GND due to stuck port data_in  ;
+; tft_ili9225:u_tft|e_ov_n[0]            ; Merged with tft_ili9225:u_tft|e_esc[3]  ;
+; tft_ili9225:u_tft|e_ov_y[6]            ; Merged with tft_ili9225:u_tft|e_esc[3]  ;
+; tft_ili9225:u_tft|e_ov_y[5]            ; Merged with tft_ili9225:u_tft|e_ov_x[5] ;
+; tft_ili9225:u_tft|e_ov_x[0,4]          ; Merged with tft_ili9225:u_tft|e_ov_en   ;
+; tft_ili9225:u_tft|e_ov_x[2]            ; Merged with tft_ili9225:u_tft|e_ov_x[1] ;
+; tft_ili9225:u_tft|e_ov_y[0,4]          ; Merged with tft_ili9225:u_tft|e_ov_x[1] ;
+; tft_ili9225:u_tft|e_dig[0][2]          ; Stuck at GND due to stuck port data_in  ;
+; tft_ili9225:u_tft|e_dig[0][3]          ; Stuck at GND due to stuck port data_in  ;
+; teclado_4x4:u_teclado|cont_libre[3]    ; Stuck at GND due to stuck port data_in  ;
+; Total Number of Removed Registers = 15 ;                                         ;
++----------------------------------------+-----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 640   ;
+; Number of registers using Synchronous Clear  ; 411   ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 390   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; rst                                     ; 130     ;
+; entrada_ficha:u_ficha|sync2             ; 7       ;
+; b1_s2                                   ; 2       ;
+; b1_ant                                  ; 1       ;
+; fsm_expendedora:u_fsm|inv[2][2]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[3][2]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[1][2]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[5][2]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[4][2]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[6][2]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[5][0]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[1][0]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[4][0]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[6][0]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[2][0]         ; 1       ;
+; fsm_expendedora:u_fsm|inv[3][0]         ; 1       ;
+; rst_s1                                  ; 1       ;
+; entrada_ficha:u_ficha|sync1             ; 1       ;
+; teclado_4x4:u_teclado|col_s2[1]         ; 3       ;
+; teclado_4x4:u_teclado|col_s2[3]         ; 3       ;
+; teclado_4x4:u_teclado|col_s2[2]         ; 3       ;
+; teclado_4x4:u_teclado|col_s2[0]         ; 3       ;
+; b1_s1                                   ; 1       ;
+; teclado_4x4:u_teclado|col_s1[1]         ; 1       ;
+; teclado_4x4:u_teclado|col_s1[3]         ; 1       ;
+; teclado_4x4:u_teclado|col_s1[2]         ; 1       ;
+; teclado_4x4:u_teclado|col_s1[0]         ; 1       ;
+; Total number of inverted registers = 27 ;         ;
++-----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |maquina_expendedora|teclado_4x4:u_teclado|fila_act[1]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |maquina_expendedora|teclado_4x4:u_teclado|cont_fila[9]               ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|dig_dir[5]                     ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |maquina_expendedora|escenas:u_escenas|cont[0]                        ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|spi_cnt[4]                     ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:1:u_motor|cont_t[1]      ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:2:u_motor|cont_t[11]     ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:3:u_motor|cont_t[19]     ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:4:u_motor|cont_t[0]      ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:5:u_motor|cont_t[14]     ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:6:u_motor|cont_t[5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |maquina_expendedora|escenas:u_escenas|t[4]                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|saldo[0]                   ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:1:u_motor|cont_pasos[12] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:2:u_motor|cont_pasos[13] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:3:u_motor|cont_pasos[6]  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:4:u_motor|cont_pasos[15] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:5:u_motor|cont_pasos[14] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |maquina_expendedora|motor_paso:\gen_motores:6:u_motor|cont_pasos[12] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|total[2]                   ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |maquina_expendedora|teclado_4x4:u_teclado|cont_libre[3]              ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|spi_bit[0]                     ;
+; 6:1                ; 15 bits   ; 60 LEs        ; 15 LEs               ; 45 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|spi_sh[5]                      ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |maquina_expendedora|teclado_4x4:u_teclado|cont_est[3]                ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 2 LEs                ; 8 LEs                  ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|fase[1]                        ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 3 LEs                ; 12 LEs                 ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|sel[0]                     ;
+; 8:1                ; 24 bits   ; 120 LEs       ; 24 LEs               ; 96 LEs                 ; Yes        ; |maquina_expendedora|entrada_ficha:u_ficha|cont[18]                   ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|cnt_ciclo[5]                   ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|win_paso[0]                    ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 8 LEs                ; 40 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|px[0]                          ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 8 LEs                ; 40 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|py[2]                          ;
+; 10:1               ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|tx_dato[12]                    ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|tx_dato[7]                     ;
+; 11:1               ; 28 bits   ; 196 LEs       ; 28 LEs               ; 168 LEs                ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|timer[13]                  ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 6 LEs                ; 42 LEs                 ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|ini_idx[3]                     ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 16 LEs               ; 128 LEs                ; Yes        ; |maquina_expendedora|tft_ili9225:u_tft|cnt_ms[12]                     ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|inv[6][0]                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|inv[5][0]                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|inv[4][2]                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|inv[3][0]                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|inv[2][2]                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |maquina_expendedora|fsm_expendedora:u_fsm|inv[1][0]                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |maquina_expendedora|hex_val[2][2]                                    ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |maquina_expendedora|hex_val[1][2]                                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |maquina_expendedora|tft_ili9225:u_tft|indice                         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |maquina_expendedora|tft_ili9225:u_tft|ry                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |maquina_expendedora|tft_ili9225:u_tft|Mux44                          ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |maquina_expendedora|tft_ili9225:u_tft|col                            ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |maquina_expendedora|tft_ili9225:u_tft|idx_d                          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |maquina_expendedora|teclado_4x4:u_teclado|col_idx                    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |maquina_expendedora|hex_val[0][3]                                    ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |maquina_expendedora|fsm_expendedora:u_fsm|Mux4                       ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |maquina_expendedora|hex_val[3][2]                                    ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |maquina_expendedora|tft_ili9225:u_tft|spi_est                        ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |maquina_expendedora|entrada_ficha:u_ficha|estado                     ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; No         ; |maquina_expendedora|fsm_expendedora:u_fsm|estado                     ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 10 LEs               ; 12 LEs                 ; No         ; |maquina_expendedora|fsm_expendedora:u_fsm|estado                     ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 6 LEs                ; 16 LEs                 ; No         ; |maquina_expendedora|fsm_expendedora:u_fsm|estado                     ;
+; 22:1               ; 4 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |maquina_expendedora|tft_ili9225:u_tft|seq                            ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; No         ; |maquina_expendedora|tft_ili9225:u_tft|seq                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Source assignments for tft_ili9225:u_tft|altsyncram:u_rom_pantallas|altsyncram_gas3:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------+
+; Assignment                      ; Value              ; From ; To                                   ;
++---------------------------------+--------------------+------+--------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                    ;
++---------------------------------+--------------------+------+--------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Source assignments for tft_ili9225:u_tft|altsyncram:u_rom_digitos|altsyncram_72s3:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------+
+; Assignment                      ; Value              ; From ; To                                 ;
++---------------------------------+--------------------+------+------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                  ;
++---------------------------------+--------------------+------+------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: entrada_ficha:u_ficha ;
++----------------+----------+----------------------------------------+
+; Parameter Name ; Value    ; Type                                   ;
++----------------+----------+----------------------------------------+
+; t_min          ; 25000    ; Signed Integer                         ;
+; t_bloqueo      ; 15000000 ; Signed Integer                         ;
++----------------+----------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: teclado_4x4:u_teclado ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; t_fila         ; 50000 ; Signed Integer                            ;
+; n_estable      ; 5     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fsm_expendedora:u_fsm ;
++----------------+-----------+---------------------------------------+
+; Parameter Name ; Value     ; Type                                  ;
++----------------+-----------+---------------------------------------+
+; t_msg          ; 100000000 ; Signed Integer                        ;
+; t_sobra        ; 250000000 ; Signed Integer                        ;
++----------------+-----------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: motor_paso:\gen_motores:1:u_motor ;
++----------------+--------+------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                 ;
++----------------+--------+------------------------------------------------------+
+; n_pasos        ; 2048   ; Signed Integer                                       ;
+; t_paso         ; 150000 ; Signed Integer                                       ;
+; sentido        ; '0'    ; Enumerated                                           ;
++----------------+--------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: motor_paso:\gen_motores:2:u_motor ;
++----------------+--------+------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                 ;
++----------------+--------+------------------------------------------------------+
+; n_pasos        ; 2048   ; Signed Integer                                       ;
+; t_paso         ; 150000 ; Signed Integer                                       ;
+; sentido        ; '0'    ; Enumerated                                           ;
++----------------+--------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: motor_paso:\gen_motores:3:u_motor ;
++----------------+--------+------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                 ;
++----------------+--------+------------------------------------------------------+
+; n_pasos        ; 2048   ; Signed Integer                                       ;
+; t_paso         ; 150000 ; Signed Integer                                       ;
+; sentido        ; '0'    ; Enumerated                                           ;
++----------------+--------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: motor_paso:\gen_motores:4:u_motor ;
++----------------+--------+------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                 ;
++----------------+--------+------------------------------------------------------+
+; n_pasos        ; 2048   ; Signed Integer                                       ;
+; t_paso         ; 150000 ; Signed Integer                                       ;
+; sentido        ; '0'    ; Enumerated                                           ;
++----------------+--------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: motor_paso:\gen_motores:5:u_motor ;
++----------------+--------+------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                 ;
++----------------+--------+------------------------------------------------------+
+; n_pasos        ; 2048   ; Signed Integer                                       ;
+; t_paso         ; 150000 ; Signed Integer                                       ;
+; sentido        ; '0'    ; Enumerated                                           ;
++----------------+--------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: motor_paso:\gen_motores:6:u_motor ;
++----------------+--------+------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                 ;
++----------------+--------+------------------------------------------------------+
+; n_pasos        ; 2048   ; Signed Integer                                       ;
+; t_paso         ; 150000 ; Signed Integer                                       ;
+; sentido        ; '0'    ; Enumerated                                           ;
++----------------+--------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: escenas:u_escenas ;
++----------------+---------+-------------------------------------+
+; Parameter Name ; Value   ; Type                                ;
++----------------+---------+-------------------------------------+
+; t_paso         ; 5000000 ; Signed Integer                      ;
++----------------+---------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tft_ili9225:u_tft ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; div_spi        ; 4     ; Signed Integer                        ;
+; ciclos_ms      ; 50000 ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tft_ili9225:u_tft|altsyncram:u_rom_pantallas ;
++------------------------------------+----------------------+-------------------------------+
+; Parameter Name                     ; Value                ; Type                          ;
++------------------------------------+----------------------+-------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                       ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                       ;
+; WIDTH_A                            ; 4                    ; Signed Integer                ;
+; WIDTHAD_A                          ; 17                   ; Signed Integer                ;
+; NUMWORDS_A                         ; 87120                ; Signed Integer                ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                       ;
+; WIDTH_B                            ; 1                    ; Signed Integer                ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer                ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer                ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                       ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                       ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
+; INIT_FILE                          ; pantallas.mif        ; Untyped                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                ;
+; DEVICE_FAMILY                      ; Cyclone III          ; Untyped                       ;
+; CBXI_PARAMETER                     ; altsyncram_gas3      ; Untyped                       ;
++------------------------------------+----------------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tft_ili9225:u_tft|altsyncram:u_rom_digitos ;
++------------------------------------+----------------------+-----------------------------+
+; Parameter Name                     ; Value                ; Type                        ;
++------------------------------------+----------------------+-----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                     ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE              ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                     ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                     ;
+; WIDTH_A                            ; 4                    ; Signed Integer              ;
+; WIDTHAD_A                          ; 11                   ; Signed Integer              ;
+; NUMWORDS_A                         ; 1920                 ; Signed Integer              ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                     ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                     ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WIDTH_B                            ; 1                    ; Signed Integer              ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer              ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer              ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                     ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                     ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                     ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                     ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer              ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer              ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                     ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
+; INIT_FILE                          ; digitos.mif          ; Untyped                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                     ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer              ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                     ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer              ;
+; DEVICE_FAMILY                      ; Cyclone III          ; Untyped                     ;
+; CBXI_PARAMETER                     ; altsyncram_72s3      ; Untyped                     ;
++------------------------------------+----------------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_98m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 8              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_h8m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_6gm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_agm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 8              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_h8m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 7              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_dgm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: tft_ili9225:u_tft|lpm_mult:Mult0  ;
++------------------------------------------------+-------------+---------------------+
+; Parameter Name                                 ; Value       ; Type                ;
++------------------------------------------------+-------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON          ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF         ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON          ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF         ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8           ; Untyped             ;
+; LPM_WIDTHB                                     ; 8           ; Untyped             ;
+; LPM_WIDTHP                                     ; 16          ; Untyped             ;
+; LPM_WIDTHR                                     ; 16          ; Untyped             ;
+; LPM_WIDTHS                                     ; 1           ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED      ; Untyped             ;
+; LPM_PIPELINE                                   ; 0           ; Untyped             ;
+; LATENCY                                        ; 0           ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO          ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES         ; Untyped             ;
+; USE_EAB                                        ; OFF         ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5           ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone III ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL      ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT         ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0           ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0           ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx          ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx          ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF         ; Untyped             ;
++------------------------------------------------+-------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                         ;
++-------------------------------------------+----------------------------------------------+
+; Name                                      ; Value                                        ;
++-------------------------------------------+----------------------------------------------+
+; Number of entity instances                ; 2                                            ;
+; Entity Instance                           ; tft_ili9225:u_tft|altsyncram:u_rom_pantallas ;
+;     -- OPERATION_MODE                     ; ROM                                          ;
+;     -- WIDTH_A                            ; 4                                            ;
+;     -- NUMWORDS_A                         ; 87120                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                 ;
+;     -- WIDTH_B                            ; 1                                            ;
+;     -- NUMWORDS_B                         ; 0                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                    ;
+; Entity Instance                           ; tft_ili9225:u_tft|altsyncram:u_rom_digitos   ;
+;     -- OPERATION_MODE                     ; ROM                                          ;
+;     -- WIDTH_A                            ; 4                                            ;
+;     -- NUMWORDS_A                         ; 1920                                         ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                 ;
+;     -- WIDTH_B                            ; 1                                            ;
+;     -- NUMWORDS_B                         ; 0                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                    ;
++-------------------------------------------+----------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                           ;
++---------------------------------------+----------------------------------+
+; Name                                  ; Value                            ;
++---------------------------------------+----------------------------------+
+; Number of entity instances            ; 1                                ;
+; Entity Instance                       ; tft_ili9225:u_tft|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                ;
+;     -- LPM_WIDTHB                     ; 8                                ;
+;     -- LPM_WIDTHP                     ; 16                               ;
+;     -- LPM_REPRESENTATION             ; SIGNED                           ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                               ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                              ;
+;     -- USE_EAB                        ; OFF                              ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                               ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                               ;
++---------------------------------------+----------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "deco7seg:u_hex3" ;
++----------+-------+----------+---------------+
+; Port     ; Type  ; Severity ; Details       ;
++----------+-------+----------+---------------+
+; valor[3] ; Input ; Info     ; Stuck at GND  ;
++----------+-------+----------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fsm_expendedora:u_fsm"                                                                 ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; stock_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:07     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Mon Nov 23 15:16:27 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off maquina_expendedora -c maquina_expendedora
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 0 entities, in source file maquina_pkg.vhd
+    Info (12022): Found design unit 1: maquina_pkg
+Info (12021): Found 1 design units, including 0 entities, in source file pantallas_pkg.vhd
+    Info (12022): Found design unit 1: pantallas_pkg
+Info (12021): Found 2 design units, including 1 entities, in source file entrada_ficha.vhd
+    Info (12022): Found design unit 1: entrada_ficha-rtl
+    Info (12023): Found entity 1: entrada_ficha
+Info (12021): Found 2 design units, including 1 entities, in source file teclado_4x4.vhd
+    Info (12022): Found design unit 1: teclado_4x4-rtl
+    Info (12023): Found entity 1: teclado_4x4
+Info (12021): Found 2 design units, including 1 entities, in source file motor_paso.vhd
+    Info (12022): Found design unit 1: motor_paso-rtl
+    Info (12023): Found entity 1: motor_paso
+Info (12021): Found 2 design units, including 1 entities, in source file fsm_expendedora.vhd
+    Info (12022): Found design unit 1: fsm_expendedora-rtl
+    Info (12023): Found entity 1: fsm_expendedora
+Info (12021): Found 2 design units, including 1 entities, in source file deco7seg.vhd
+    Info (12022): Found design unit 1: deco7seg-rtl
+    Info (12023): Found entity 1: deco7seg
+Info (12021): Found 2 design units, including 1 entities, in source file escenas.vhd
+    Info (12022): Found design unit 1: escenas-rtl
+    Info (12023): Found entity 1: escenas
+Info (12021): Found 2 design units, including 1 entities, in source file tft_ili9225.vhd
+    Info (12022): Found design unit 1: tft_ili9225-rtl
+    Info (12023): Found entity 1: tft_ili9225
+Info (12021): Found 2 design units, including 1 entities, in source file maquina_expendedora.vhd
+    Info (12022): Found design unit 1: maquina_expendedora-estructural
+    Info (12023): Found entity 1: maquina_expendedora
+Info (12127): Elaborating entity "maquina_expendedora" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at maquina_expendedora.vhd(74): object "stock" assigned a value but never read
+Info (12128): Elaborating entity "entrada_ficha" for hierarchy "entrada_ficha:u_ficha"
+Info (12128): Elaborating entity "teclado_4x4" for hierarchy "teclado_4x4:u_teclado"
+Info (12128): Elaborating entity "fsm_expendedora" for hierarchy "fsm_expendedora:u_fsm"
+Info (12128): Elaborating entity "motor_paso" for hierarchy "motor_paso:\gen_motores:1:u_motor"
+Info (12128): Elaborating entity "escenas" for hierarchy "escenas:u_escenas"
+Info (12128): Elaborating entity "tft_ili9225" for hierarchy "tft_ili9225:u_tft"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "tft_ili9225:u_tft|altsyncram:u_rom_pantallas"
+Info (12130): Elaborated megafunction instantiation "tft_ili9225:u_tft|altsyncram:u_rom_pantallas"
+Info (12133): Instantiated megafunction "tft_ili9225:u_tft|altsyncram:u_rom_pantallas" with the following parameter:
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone III"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "pantallas.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "87120"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "4"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "17"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gas3.tdf
+    Info (12023): Found entity 1: altsyncram_gas3
+Info (12128): Elaborating entity "altsyncram_gas3" for hierarchy "tft_ili9225:u_tft|altsyncram:u_rom_pantallas|altsyncram_gas3:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_m8a.tdf
+    Info (12023): Found entity 1: decode_m8a
+Info (12128): Elaborating entity "decode_m8a" for hierarchy "tft_ili9225:u_tft|altsyncram:u_rom_pantallas|altsyncram_gas3:auto_generated|decode_m8a:rden_decode"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_9nb.tdf
+    Info (12023): Found entity 1: mux_9nb
+Info (12128): Elaborating entity "mux_9nb" for hierarchy "tft_ili9225:u_tft|altsyncram:u_rom_pantallas|altsyncram_gas3:auto_generated|mux_9nb:mux2"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "tft_ili9225:u_tft|altsyncram:u_rom_digitos"
+Info (12130): Elaborated megafunction instantiation "tft_ili9225:u_tft|altsyncram:u_rom_digitos"
+Info (12133): Instantiated megafunction "tft_ili9225:u_tft|altsyncram:u_rom_digitos" with the following parameter:
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone III"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "digitos.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "1920"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "4"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "11"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_72s3.tdf
+    Info (12023): Found entity 1: altsyncram_72s3
+Info (12128): Elaborating entity "altsyncram_72s3" for hierarchy "tft_ili9225:u_tft|altsyncram:u_rom_digitos|altsyncram_72s3:auto_generated"
+Info (12128): Elaborating entity "deco7seg" for hierarchy "deco7seg:u_hex0"
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "tft_ili9225:u_tft|Mult0"
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod2"
+Info (12133): Instantiated megafunction "lpm_divide:Mod2" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_98m.tdf
+    Info (12023): Found entity 1: lpm_divide_98m
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7kh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_p2f.tdf
+    Info (12023): Found entity 1: alt_u_div_p2f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_unc.tdf
+    Info (12023): Found entity 1: add_sub_unc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_vnc.tdf
+    Info (12023): Found entity 1: add_sub_vnc
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1"
+Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_h8m.tdf
+    Info (12023): Found entity 1: lpm_divide_h8m
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_fkh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_93f.tdf
+    Info (12023): Found entity 1: alt_u_div_93f
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div2"
+Info (12133): Instantiated megafunction "lpm_divide:Div2" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_6gm.tdf
+    Info (12023): Found entity 1: lpm_divide_6gm
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1"
+Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_agm.tdf
+    Info (12023): Found entity 1: lpm_divide_agm
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_13f.tdf
+    Info (12023): Found entity 1: alt_u_div_13f
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0"
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_dgm.tdf
+    Info (12023): Found entity 1: lpm_divide_dgm
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_ekh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_ekh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_73f.tdf
+    Info (12023): Found entity 1: alt_u_div_73f
+Info (12130): Elaborated megafunction instantiation "tft_ili9225:u_tft|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "tft_ili9225:u_tft|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "16"
+    Info (12134): Parameter "LPM_WIDTHR" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "tft_ili9225:u_tft|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "tft_ili9225:u_tft|lpm_mult:Mult0"
+Info (12131): Elaborated megafunction instantiation "tft_ili9225:u_tft|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "tft_ili9225:u_tft|lpm_mult:Mult0"
+Info (12131): Elaborated megafunction instantiation "tft_ili9225:u_tft|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "tft_ili9225:u_tft|lpm_mult:Mult0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_3jh.tdf
+    Info (12023): Found entity 1: add_sub_3jh
+Info (12131): Elaborated megafunction instantiation "tft_ili9225:u_tft|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "tft_ili9225:u_tft|lpm_mult:Mult0"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "HEX0_DP" is stuck at VCC
+    Warning (13410): Pin "HEX1_DP" is stuck at VCC
+    Warning (13410): Pin "HEX2_DP" is stuck at VCC
+    Warning (13410): Pin "HEX3_DP" is stuck at VCC
+Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_h8m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_93f:divider|add_sub_7_result_int[0]~16"
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "BUTTON[2]"
+    Warning (15610): No output dependent on input pin "SW[4]"
+    Warning (15610): No output dependent on input pin "SW[5]"
+    Warning (15610): No output dependent on input pin "SW[6]"
+    Warning (15610): No output dependent on input pin "SW[7]"
+    Warning (15610): No output dependent on input pin "SW[8]"
+Info (21057): Implemented 1834 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 75 output pins
+    Info (21061): Implemented 1692 logic cells
+    Info (21064): Implemented 48 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Peak virtual memory: 4694 megabytes
+    Info: Processing ended: Mon Nov 23 15:16:43 2026
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:09
+
+

@@ -1,0 +1,191 @@
+# Reading C:/altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
+# ** Error: (vish-42) Unsupported ModelSim library format for "C:/altera/13.1/work". (Format: 4)
+cd {C:/Users/Caro/Desktop/entrega proyecto digitales/maquina_vhdl}
+do sim/correr_sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package maquina_pkg
+# -- Compiling package pantallas_pkg
+# -- Compiling entity entrada_ficha
+# -- Compiling architecture rtl of entrada_ficha
+# -- Loading package maquina_pkg
+# -- Compiling entity fsm_expendedora
+# -- Compiling architecture rtl of fsm_expendedora
+# -- Loading package pantallas_pkg
+# -- Loading package altera_mf_components
+# -- Compiling entity tft_ili9225
+# -- Compiling architecture rtl of tft_ili9225
+# -- Compiling entity tb_entrada_ficha
+# -- Compiling architecture tb of tb_entrada_ficha
+# -- Loading entity entrada_ficha
+# -- Compiling entity tb_fsm_expendedora
+# -- Compiling architecture tb of tb_fsm_expendedora
+# -- Loading entity fsm_expendedora
+# -- Compiling entity tb_tft
+# -- Compiling architecture tb of tb_tft
+# -- Loading entity tft_ili9225
+# ** Error: sim/tb_tft.vhd(55): (vcom-1136) Unknown identifier "hwrite".
+# 
+# ** Error: sim/tb_tft.vhd(67): VHDL Compiler exiting
+# ** Error: C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./sim/correr_sim.do line 6
+# C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 maquina_pkg.vhd pantallas_pkg.vhd entrada_ficha.vhd fsm_expendedora.vhd tft_ili9225.vhd sim/tb_entrada_ficha.vhd sim/tb_fsm_expendedora.vhd s..."
+write transcript sim_log.txt
+do sim/correr_sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package maquina_pkg
+# -- Compiling package pantallas_pkg
+# -- Compiling entity entrada_ficha
+# -- Compiling architecture rtl of entrada_ficha
+# -- Loading package maquina_pkg
+# -- Compiling entity fsm_expendedora
+# -- Compiling architecture rtl of fsm_expendedora
+# -- Loading package pantallas_pkg
+# -- Loading package altera_mf_components
+# -- Compiling entity tft_ili9225
+# -- Compiling architecture rtl of tft_ili9225
+# -- Compiling entity tb_entrada_ficha
+# -- Compiling architecture tb of tb_entrada_ficha
+# -- Loading entity entrada_ficha
+# -- Compiling entity tb_fsm_expendedora
+# -- Compiling architecture tb of tb_fsm_expendedora
+# -- Loading entity fsm_expendedora
+# -- Compiling entity tb_tft
+# -- Compiling architecture tb of tb_tft
+# -- Loading entity tft_ili9225
+# ** Error: sim/tb_tft.vhd(55): (vcom-1136) Unknown identifier "hwrite".
+# 
+# ** Error: sim/tb_tft.vhd(67): VHDL Compiler exiting
+# ** Error: C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./sim/correr_sim.do line 6
+# C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 maquina_pkg.vhd pantallas_pkg.vhd entrada_ficha.vhd fsm_expendedora.vhd tft_ili9225.vhd sim/tb_entrada_ficha.vhd sim/tb_fsm_expendedora.vhd s..."
+write transcript sim_log.txt
+do sim/correr_sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package maquina_pkg
+# -- Compiling package pantallas_pkg
+# -- Compiling entity entrada_ficha
+# -- Compiling architecture rtl of entrada_ficha
+# -- Loading package maquina_pkg
+# -- Compiling entity fsm_expendedora
+# -- Compiling architecture rtl of fsm_expendedora
+# -- Loading package pantallas_pkg
+# -- Loading package altera_mf_components
+# -- Compiling entity tft_ili9225
+# -- Compiling architecture rtl of tft_ili9225
+# -- Compiling entity tb_entrada_ficha
+# -- Compiling architecture tb of tb_entrada_ficha
+# -- Loading entity entrada_ficha
+# -- Compiling entity tb_fsm_expendedora
+# -- Compiling architecture tb of tb_fsm_expendedora
+# -- Loading entity fsm_expendedora
+# -- Compiling entity tb_tft
+# -- Compiling architecture tb of tb_tft
+# -- Loading entity tft_ili9225
+# ** Error: sim/tb_tft.vhd(55): (vcom-1136) Unknown identifier "hwrite".
+# 
+# ** Error: sim/tb_tft.vhd(67): VHDL Compiler exiting
+# ** Error: C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./sim/correr_sim.do line 6
+# C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 maquina_pkg.vhd pantallas_pkg.vhd entrada_ficha.vhd fsm_expendedora.vhd tft_ili9225.vhd sim/tb_entrada_ficha.vhd sim/tb_fsm_expendedora.vhd s..."
+do sim/correr_sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package maquina_pkg
+# -- Compiling package pantallas_pkg
+# -- Compiling entity entrada_ficha
+# -- Compiling architecture rtl of entrada_ficha
+# -- Loading package maquina_pkg
+# -- Compiling entity fsm_expendedora
+# -- Compiling architecture rtl of fsm_expendedora
+# -- Loading package pantallas_pkg
+# -- Loading package altera_mf_components
+# -- Compiling entity tft_ili9225
+# -- Compiling architecture rtl of tft_ili9225
+# -- Compiling entity tb_entrada_ficha
+# -- Compiling architecture tb of tb_entrada_ficha
+# -- Loading entity entrada_ficha
+# -- Compiling entity tb_fsm_expendedora
+# -- Compiling architecture tb of tb_fsm_expendedora
+# -- Loading entity fsm_expendedora
+# -- Compiling entity tb_tft
+# -- Compiling architecture tb of tb_tft
+# -- Loading entity tft_ili9225
+# ** Error: sim/tb_tft.vhd(55): (vcom-1136) Unknown identifier "hwrite".
+# 
+# ** Error: sim/tb_tft.vhd(67): VHDL Compiler exiting
+# ** Error: C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./sim/correr_sim.do line 6
+# C:/altera/13.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 maquina_pkg.vhd pantallas_pkg.vhd entrada_ficha.vhd fsm_expendedora.vhd tft_ili9225.vhd sim/tb_entrada_ficha.vhd sim/tb_fsm_expendedora.vhd s..."
+write transcript sim_log.txt
+do sim/correr_sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package maquina_pkg
+# -- Compiling package pantallas_pkg
+# -- Compiling entity entrada_ficha
+# -- Compiling architecture rtl of entrada_ficha
+# -- Loading package maquina_pkg
+# -- Compiling entity fsm_expendedora
+# -- Compiling architecture rtl of fsm_expendedora
+# -- Loading package pantallas_pkg
+# -- Loading package altera_mf_components
+# -- Compiling entity tft_ili9225
+# -- Compiling architecture rtl of tft_ili9225
+# -- Compiling entity tb_entrada_ficha
+# -- Compiling architecture tb of tb_entrada_ficha
+# -- Loading entity entrada_ficha
+# -- Compiling entity tb_fsm_expendedora
+# -- Compiling architecture tb of tb_fsm_expendedora
+# -- Loading entity fsm_expendedora
+# -- Loading package std_logic_textio
+# -- Compiling entity tb_tft
+# -- Compiling architecture tb of tb_tft
+# -- Loading entity tft_ili9225
+# ===== tb_entrada_ficha ===== 
+# vsim -quiet work.tb_entrada_ficha 
+# ** Note: FIN tb_entrada_ficha: fichas contadas = 3
+#    Time: 21880 ns  Iteration: 0  Instance: /tb_entrada_ficha
+# ===== tb_fsm_expendedora ===== 
+# vsim -quiet work.tb_fsm_expendedora 
+# ** Note: FIN tb_fsm_expendedora
+#    Time: 3270 ns  Iteration: 0  Instance: /tb_fsm_expendedora
+# ===== tb_tft (un cuadro completo, tarda un poco) ===== 
+# vsim -quiet work.tb_tft 
+# ** Note: FIN tb_tft: cuadro completo capturado
+#    Time: 30286450 ns  Iteration: 1  Instance: /tb_tft

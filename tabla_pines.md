@@ -1,0 +1,38 @@
+| GPIO_0 | 2 | GPIO0_D0 | KP_FILA[0] | Teclado pin 1 (fila 1) |
+| GPIO_0 | 4 | GPIO0_D1 | KP_FILA[1] | Teclado pin 2 (fila 2) |
+| GPIO_0 | 5 | GPIO0_D2 | KP_FILA[2] | Teclado pin 3 (fila 3) |
+| GPIO_0 | 6 | GPIO0_D3 | KP_FILA[3] | Teclado pin 4 (fila 4) |
+| GPIO_0 | 7 | GPIO0_D4 | KP_COL[0] | Teclado pin 5 (columna 1) |
+| GPIO_0 | 8 | GPIO0_D5 | KP_COL[1] | Teclado pin 6 (columna 2) |
+| GPIO_0 | 9 | GPIO0_D6 | KP_COL[2] | Teclado pin 7 (columna 3) |
+| GPIO_0 | 10 | GPIO0_D7 | KP_COL[3] | Teclado pin 8 (columna 4) |
+| GPIO_0 | 13 | GPIO0_D8 | FICHA_N | Microswitch de la ficha (terminal NO) |
+| GPIO_0 | 14 | GPIO0_D9 | TFT_CS | TFT CS |
+| GPIO_0 | 15 | GPIO0_D10 | TFT_RS | TFT RS |
+| GPIO_0 | 16 | GPIO0_D11 | TFT_RST | TFT RST |
+| GPIO_0 | 17 | GPIO0_D12 | TFT_SCK | TFT CLK |
+| GPIO_0 | 18 | GPIO0_D13 | TFT_SDI | TFT SDI |
+| GPIO_1 | 2 | GPIO1_D0 | MOTOR1[0] | ULN2003 #1 IN1 |
+| GPIO_1 | 4 | GPIO1_D1 | MOTOR1[1] | ULN2003 #1 IN2 |
+| GPIO_1 | 5 | GPIO1_D2 | MOTOR1[2] | ULN2003 #1 IN3 |
+| GPIO_1 | 6 | GPIO1_D3 | MOTOR1[3] | ULN2003 #1 IN4 |
+| GPIO_1 | 7 | GPIO1_D4 | MOTOR2[0] | ULN2003 #2 IN1 |
+| GPIO_1 | 8 | GPIO1_D5 | MOTOR2[1] | ULN2003 #2 IN2 |
+| GPIO_1 | 9 | GPIO1_D6 | MOTOR2[2] | ULN2003 #2 IN3 |
+| GPIO_1 | 10 | GPIO1_D7 | MOTOR2[3] | ULN2003 #2 IN4 |
+| GPIO_1 | 13 | GPIO1_D8 | MOTOR3[0] | ULN2003 #3 IN1 |
+| GPIO_1 | 14 | GPIO1_D9 | MOTOR3[1] | ULN2003 #3 IN2 |
+| GPIO_1 | 15 | GPIO1_D10 | MOTOR3[2] | ULN2003 #3 IN3 |
+| GPIO_1 | 16 | GPIO1_D11 | MOTOR3[3] | ULN2003 #3 IN4 |
+| GPIO_1 | 17 | GPIO1_D12 | MOTOR4[0] | ULN2003 #4 IN1 |
+| GPIO_1 | 18 | GPIO1_D13 | MOTOR4[1] | ULN2003 #4 IN2 |
+| GPIO_1 | 22 | GPIO1_D15 | MOTOR4[2] | ULN2003 #4 IN3 |
+| GPIO_1 | 23 | GPIO1_D16 | MOTOR4[3] | ULN2003 #4 IN4 |
+| GPIO_1 | 24 | GPIO1_D17 | MOTOR5[0] | ULN2003 #5 IN1 |
+| GPIO_1 | 25 | GPIO1_D18 | MOTOR5[1] | ULN2003 #5 IN2 |
+| GPIO_1 | 26 | GPIO1_D19 | MOTOR5[2] | ULN2003 #5 IN3 |
+| GPIO_1 | 27 | GPIO1_D20 | MOTOR5[3] | ULN2003 #5 IN4 |
+| GPIO_1 | 28 | GPIO1_D21 | MOTOR6[0] | ULN2003 #6 IN1 |
+| GPIO_1 | 31 | GPIO1_D22 | MOTOR6[1] | ULN2003 #6 IN2 |
+| GPIO_1 | 32 | GPIO1_D23 | MOTOR6[2] | ULN2003 #6 IN3 |
+| GPIO_1 | 33 | GPIO1_D24 | MOTOR6[3] | ULN2003 #6 IN4 |

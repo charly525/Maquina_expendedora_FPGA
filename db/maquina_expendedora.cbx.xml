@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="maquina_expendedora">
+		<CBX_INST_ENTRY INSTANCE_NAME="|maquina_expendedora|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_dgm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|maquina_expendedora|tft_ili9225:u_tft|altsyncram:u_rom_pantallas" CBX_FILE_NAME="altsyncram_gas3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|maquina_expendedora|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_agm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|maquina_expendedora|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_h8m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|maquina_expendedora|lpm_divide:Mod2" CBX_FILE_NAME="lpm_divide_98m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|maquina_expendedora|tft_ili9225:u_tft|altsyncram:u_rom_digitos" CBX_FILE_NAME="altsyncram_72s3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|maquina_expendedora|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_6gm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|maquina_expendedora|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_h8m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|maquina_expendedora|tft_ili9225:u_tft|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_3jh.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

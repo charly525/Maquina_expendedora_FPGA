@@ -1,0 +1,512 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Caro\Desktop\entrega proyecto digitales\maquina_vhdl
+Edeco7seg
+Z1 w1794961483
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Users\Caro\Desktop\entrega proyecto digitales\maquina_vhdl
+Z5 8deco7seg.vhd
+Z6 Fdeco7seg.vhd
+l0
+L17
+V[=Zb^?J>G6mFo1A1`VcGB1
+Z7 OV;C;10.1d;51
+31
+Z8 !s108 1794961781.230000
+Z9 !s90 -reportprogress|300|-93|maquina_pkg.vhd|entrada_ficha.vhd|teclado_4x4.vhd|motor_paso.vhd|fsm_expendedora.vhd|deco7seg.vhd|fuente_5x7.vhd|textos_pantalla.vhd|tft_ili9225.vhd|maquina_expendedora.vhd|sim/tb_entrada_ficha.vhd|sim/tb_fsm_expendedora.vhd|
+Z10 !s107 sim/tb_fsm_expendedora.vhd|sim/tb_entrada_ficha.vhd|maquina_expendedora.vhd|tft_ili9225.vhd|textos_pantalla.vhd|fuente_5x7.vhd|deco7seg.vhd|fsm_expendedora.vhd|motor_paso.vhd|teclado_4x4.vhd|entrada_ficha.vhd|maquina_pkg.vhd|
+Z11 o-93 -O0
+Z12 tExplicit 1
+!s100 2HTTP]B:k0O6U:[hUe8D=2
+!i10b 1
+Artl
+R2
+R3
+Z13 DEx4 work 8 deco7seg 0 22 [=Zb^?J>G6mFo1A1`VcGB1
+l26
+L24
+VbiR<hCPZB0FgPmeUn83CU0
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 E:C0g3hVPYRz@lBEhJYJW3
+!i10b 1
+Eentrada_ficha
+Z14 w1795017973
+Z15 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R2
+R3
+R4
+Z16 8entrada_ficha.vhd
+Z17 Fentrada_ficha.vhd
+l0
+L22
+VE5F>kDkAjlR7JdYg>S^Q@2
+!s100 VM80NLTH84S9oPc:m[L<61
+R7
+31
+!i10b 1
+Z18 !s108 1795496504.064000
+Z19 !s90 -reportprogress|300|-93|maquina_pkg.vhd|pantallas_pkg.vhd|entrada_ficha.vhd|fsm_expendedora.vhd|sim/tb_entrada_ficha.vhd|sim/tb_fsm_expendedora.vhd|
+Z20 !s107 sim/tb_fsm_expendedora.vhd|sim/tb_entrada_ficha.vhd|fsm_expendedora.vhd|entrada_ficha.vhd|pantallas_pkg.vhd|maquina_pkg.vhd|
+R11
+R12
+Artl
+R15
+R2
+R3
+Z21 DEx4 work 13 entrada_ficha 0 22 E5F>kDkAjlR7JdYg>S^Q@2
+l44
+L36
+Z22 V03fdIFe5jZP:Oe>kLP`;L3
+Z23 !s100 z8g0]kLlNRP=MoQ=f<IFG3
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Efsm_expendedora
+Z24 w1795017974
+Z25 DPx4 work 11 maquina_pkg 0 22 2eXYcY;kQ^Y`TTCi9;h^21
+R15
+R2
+R3
+R4
+Z26 8fsm_expendedora.vhd
+Z27 Ffsm_expendedora.vhd
+l0
+L22
+VWafB84HF=19g=Ii09C7bK3
+!s100 gA1D6Jl49F=LboeSR7FOZ3
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Artl
+R25
+R15
+R2
+R3
+Z28 DEx4 work 15 fsm_expendedora 0 22 WafB84HF=19g=Ii09C7bK3
+l58
+L46
+Z29 V`EnE0OT_Hzn=zRK>IUCzi2
+Z30 !s100 _Y`S5Yek=9hGJ[HfgI]ni0
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Efuente_5x7
+Z31 w1794961486
+R15
+R2
+R3
+R4
+Z32 8fuente_5x7.vhd
+Z33 Ffuente_5x7.vhd
+l0
+L12
+VaIbi2C>;iDAiL2kOzFe8?1
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 P9M7]B^GoniN@^;4IkQZU2
+!i10b 1
+Arom
+R15
+R2
+R3
+DEx4 work 10 fuente_5x7 0 22 aIbi2C>;iDAiL2kOzFe8?1
+l22
+L20
+VF_Rmd6G2L=gI=eNnnMJn=1
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 NR3VVe9F0MzbK@Ug1:lje0
+!i10b 1
+Emaquina_expendedora
+Z34 w1794961487
+Z35 DPx4 work 11 maquina_pkg 0 22 05P=T7nBXhTD1jPHdN]Eg0
+R15
+R2
+R3
+R4
+Z36 8maquina_expendedora.vhd
+Z37 Fmaquina_expendedora.vhd
+l0
+L33
+VFgXg1Y;=66YD4jghmVJl@1
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 Ceg9KaDD2n[<gDQ3UA0oI1
+!i10b 1
+Aestructural
+R13
+DEx4 work 11 tft_ili9225 0 22 9D9ifSDAI8Q=1SD7of:j82
+Z38 DEx4 work 15 textos_pantalla 0 22 [X^RNnGMXn?64I08W;DBS1
+Z39 DEx4 work 10 motor_paso 0 22 YaHBbSlR4<ZJ1kSC4ObCI2
+DEx4 work 15 fsm_expendedora 0 22 c7O[0RY@=nj:iN]]AWj:A2
+Z40 DEx4 work 11 teclado_4x4 0 22 cT9=ec<]ANZF^:57m_e3a1
+R21
+R35
+R15
+R2
+R3
+DEx4 work 19 maquina_expendedora 0 22 FgXg1Y;=66YD4jghmVJl@1
+l92
+L54
+V`N@_M`><4Q?<o>XGl;YCW2
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 F2cAkD6gV[MIW>Md^FR>T3
+!i10b 1
+Pmaquina_pkg
+R15
+R2
+R3
+w1795017978
+R4
+8maquina_pkg.vhd
+Fmaquina_pkg.vhd
+l0
+L10
+V2eXYcY;kQ^Y`TTCi9;h^21
+!s100 Q4VHmZJG;WSD8KMVjdh3f2
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Emotor_paso
+Z41 w1794961488
+R15
+R2
+R3
+R4
+Z42 8motor_paso.vhd
+Z43 Fmotor_paso.vhd
+l0
+L22
+VYaHBbSlR4<ZJ1kSC4ObCI2
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 J1_I;D4@Z>eYlTR22Y@Ha2
+!i10b 1
+Artl
+R15
+R2
+R3
+R39
+l43
+L37
+VoZ8CIzBSMO`TYG46<?foe0
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 c;KH`:h?8RXiKXJ:bEkJS3
+!i10b 1
+Ppantallas_pkg
+R2
+R3
+Z44 w1795017980
+R4
+8pantallas_pkg.vhd
+Fpantallas_pkg.vhd
+l0
+L5
+V=P6fWSi]3no[Z0_kzUV@S2
+!s100 OUfJo<Jma4VD><U5X`>2m1
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Etb_entrada_ficha
+R44
+R2
+R3
+R4
+Z45 8sim/tb_entrada_ficha.vhd
+Z46 Fsim/tb_entrada_ficha.vhd
+l0
+L7
+VOek7k<o8RKGjK>2C:]HAD2
+!s100 NVA8nnBB60IXbJ;Ug];j:0
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Atb
+R15
+R21
+R2
+R3
+Z47 DEx4 work 16 tb_entrada_ficha 0 22 Oek7k<o8RKGjK>2C:]HAD2
+l18
+L10
+Z48 VCNJ?=XF]2_@_1hIOi@AIN2
+Z49 !s100 >>Uf2>=idaBblg7R3VmGI3
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Etb_fsm_expendedora
+Z50 w1795017981
+R25
+R15
+R2
+R3
+R4
+Z51 8sim/tb_fsm_expendedora.vhd
+Z52 Fsim/tb_fsm_expendedora.vhd
+l0
+L9
+VNUAVYMZ@jM<[z9I:><?z72
+!s100 Vb:OCI`l7[Z`S[dS6<DlV3
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Atb
+R28
+R25
+R15
+R2
+R3
+Z53 DEx4 work 18 tb_fsm_expendedora 0 22 NUAVYMZ@jM<[z9I:><?z72
+l24
+L12
+Z54 VgmZMXecgdnHd21OPVahjb3
+Z55 !s100 Z9T<=RK;lhG2WHJ>KdGa@0
+R7
+31
+!i10b 1
+R18
+R19
+R20
+R11
+R12
+Etb_tft
+Z56 w1795018562
+Z57 DPx4 work 13 pantallas_pkg 0 22 =P6fWSi]3no[Z0_kzUV@S2
+Z58 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+R15
+R2
+R3
+R4
+Z59 8sim/tb_tft.vhd
+Z60 Fsim/tb_tft.vhd
+l0
+L13
+VB<LzQK@kLR>3HKRM]UQV:1
+R7
+31
+Z61 !s108 1795018585.873000
+Z62 !s90 -reportprogress|300|-93|maquina_pkg.vhd|pantallas_pkg.vhd|entrada_ficha.vhd|fsm_expendedora.vhd|tft_ili9225.vhd|sim/tb_entrada_ficha.vhd|sim/tb_fsm_expendedora.vhd|sim/tb_tft.vhd|
+Z63 !s107 sim/tb_tft.vhd|sim/tb_fsm_expendedora.vhd|sim/tb_entrada_ficha.vhd|tft_ili9225.vhd|fsm_expendedora.vhd|entrada_ficha.vhd|pantallas_pkg.vhd|maquina_pkg.vhd|
+R11
+R12
+!s100 `kBH0jWGbfKTH3fELIhO_2
+!i10b 1
+Atb
+Z64 DPx9 altera_mf 20 altera_mf_components 0 22 zh;bE09gCIPDVLK?MN49L3
+Z65 DEx4 work 11 tft_ili9225 0 22 85Z9aRWVhI]OUR[HMc5Pi0
+R57
+R58
+R15
+R2
+R3
+DEx4 work 6 tb_tft 0 22 B<LzQK@kLR>3HKRM]UQV:1
+l22
+L16
+Vb8<fjlC4h]SJ[<KFgMAN^3
+R7
+31
+R61
+R62
+R63
+R11
+R12
+!s100 @^DYLgDi0RbaA:mfSQez13
+!i10b 1
+Eteclado_4x4
+Z66 w1794961489
+R15
+R2
+R3
+R4
+Z67 8teclado_4x4.vhd
+Z68 Fteclado_4x4.vhd
+l0
+L27
+VcT9=ec<]ANZF^:57m_e3a1
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 8mLnjU9R1c2U>og]THTC23
+!i10b 1
+Artl
+R15
+R2
+R3
+R40
+l65
+L42
+V3eo5n^PZECCB@ZBc^MfME1
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 M8_`I6nO9AFdDGT`j@d:]2
+!i10b 1
+Etextos_pantalla
+R66
+R35
+R15
+R2
+R3
+R4
+Z69 8textos_pantalla.vhd
+Z70 Ftextos_pantalla.vhd
+l0
+L13
+V[X^RNnGMXn?64I08W;DBS1
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 ?SBVJME`Z3bQOoJMT4aDi2
+!i10b 1
+Artl
+R35
+R15
+R2
+R3
+R38
+l58
+L26
+VWQbZ1Vl;VKVEz;S1N`kbe2
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 `;o_i]^QGhLW2<M`LAehX0
+!i10b 1
+Etft_ili9225
+Z71 w1795017983
+R64
+R57
+R15
+R2
+R3
+R4
+Z72 8tft_ili9225.vhd
+Z73 Ftft_ili9225.vhd
+l0
+L26
+V85Z9aRWVhI]OUR[HMc5Pi0
+R7
+31
+R61
+R62
+R63
+R11
+R12
+!s100 k@SzKCSRYg6bRV2D7NDl20
+!i10b 1
+Artl
+R64
+R57
+R15
+R2
+R3
+R65
+l154
+L54
+V:<TENM<<mOJ=2]1<V4aFo2
+!s100 JPcQf2V@fah0N?o7=5NCl2
+R7
+31
+R61
+R62
+R63
+R11
+R12
+!i10b 1

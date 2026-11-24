@@ -1,0 +1,236 @@
+-- =====================================================================
+-- maquina_expendedora.vhd   (ENTIDAD TOP: ponerla como "Top-Level Entity")
+-- Mini maquina expendedora en la Terasic DE0 (Cyclone III EP3C16F484C6)
+--
+-- Jerarquia:
+--   maquina_expendedora
+--    |- entrada_ficha     (microswitch de la ficha)
+--    |- teclado_4x4       (teclado de membrana)
+--    |- fsm_expendedora   (FSM principal, saldo, inventario, total)
+--    |- motor_paso  x6    (28BYJ-48 + ULN2003, uno por espiral)
+--    |- escenas           (que imagen se ve en la TFT y su animacion)
+--    |- tft_ili9225       (controlador SPI de la TFT, imagenes en ROM M9K)
+--    '- deco7seg    x4    (displays de la DE0)
+--
+-- Controles de la tarjeta:
+--   BUTTON0      : reset general
+--   SW0          : modo mantenimiento (recarga inventario, muestra total)
+--   BUTTON1      : PRUEBA: gira una vuelta el motor elegido con SW3..SW1
+--                  (001 = motor 1 ... 110 = motor 6). Sirve para probar
+--                  el cableado sin pasar por la FSM.
+--   LEDG5..LEDG0 : motor 6..1 girando
+--   LEDG7        : la TFT termino de inicializar
+--   LEDG9        : se detecto una ficha (se enciende 0.3 s)
+--   HEX3 HEX2    : producto elegido y su precio
+--   HEX1 HEX0    : saldo en fichas
+--   SW9          : PRUEBA DE TECLADO. HEX0 = ultima tecla (0-9, A-D, E = *, F = #),
+--                  LEDG3..LEDG0 = columna 4..1 del teclado activa, LEDG8 = modo prueba
+-- =====================================================================
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.maquina_pkg.all;
+use work.pantallas_pkg.all;
+
+entity maquina_expendedora is
+    port (
+        CLOCK_50 : in  std_logic;
+        BUTTON   : in  std_logic_vector(2 downto 0);   -- activos en bajo
+        SW       : in  std_logic_vector(9 downto 0);
+        LEDG     : out std_logic_vector(9 downto 0);
+        HEX0_D, HEX1_D, HEX2_D, HEX3_D : out std_logic_vector(6 downto 0);
+        HEX0_DP, HEX1_DP, HEX2_DP, HEX3_DP : out std_logic;
+
+        -- Teclado (conector GPIO_0)
+        KP_FILA  : out std_logic_vector(3 downto 0);
+        KP_COL   : in  std_logic_vector(3 downto 0);
+        -- Ficha (conector GPIO_0)
+        FICHA_N  : in  std_logic;
+        -- Pantalla TFT (conector GPIO_0)
+        TFT_CS, TFT_RS, TFT_RST, TFT_SCK, TFT_SDI : out std_logic;
+        -- Motores, IN1..IN4 de cada ULN2003 (conector GPIO_1)
+        MOTOR1, MOTOR2, MOTOR3, MOTOR4, MOTOR5, MOTOR6 : out std_logic_vector(3 downto 0)
+    );
+end entity;
+
+architecture estructural of maquina_expendedora is
+    -- reset y entradas de la tarjeta sincronizadas
+    signal rst_s1, rst      : std_logic := '1';
+    signal sw0_s1, sw0_s    : std_logic := '0';
+    signal b1_s1, b1_s2, b1_ant : std_logic := '1';
+    signal prueba_pulso     : std_logic := '0';
+
+    signal ficha_pulso, ficha_ocup : std_logic;
+    -- El sensor FC-03 da '0' con la ranura libre y '1' al pasar la ficha.
+    -- entrada_ficha espera '0' al pasar la ficha, asi que se invierte aqui.
+    signal ficha_sensor : std_logic;
+    signal tecla_valida : std_logic;
+    signal tecla_cod    : std_logic_vector(3 downto 0);
+
+    signal estado  : t_estado;
+    signal saldo   : natural range 0 to 15;
+    signal sel     : natural range 0 to N_PROD;
+    signal precio  : natural range 0 to 15;
+    signal stock   : natural range 0 to 7;
+    signal total   : natural range 0 to 255;
+
+    signal ini_fsm, ini_prueba, ini_motor : std_logic_vector(N_PROD downto 1);
+    signal ocup_motor : std_logic_vector(N_PROD downto 1);
+    signal motor_ocupado : std_logic;
+    type t_fases is array (1 to N_PROD) of std_logic_vector(3 downto 0);
+    signal fases : t_fases;
+
+    -- escena que se dibuja en la pantalla
+    signal p_escena  : natural range 0 to P_N - 1;
+    signal p_rebote  : natural range 0 to 3;
+    signal p_ov_en   : std_logic;
+    signal p_ov_x    : natural range 0 to P_ANCHO - 1;
+    signal p_ov_y    : natural range 0 to P_ALTO - 1;
+    signal p_ov_n    : natural range 1 to 3;
+    signal p_d0, p_d1, p_d2 : natural range 0 to 9;
+    signal tft_listo : std_logic;
+    -- modo prueba de teclado (SW9 arriba)
+    signal ultima_tecla : std_logic_vector(3 downto 0) := (others => '0');
+    signal hubo_tecla   : std_logic := '0';
+    signal sw9_s1, sw9_s : std_logic := '0';
+
+    type t_hex is array (0 to 3) of std_logic_vector(4 downto 0);
+    signal hex_val : t_hex;
+    constant H_APAGADO : std_logic_vector(4 downto 0) := "10000";
+    constant H_GUION   : std_logic_vector(4 downto 0) := "10001";
+
+    function h(n : natural) return std_logic_vector is
+    begin
+        return std_logic_vector(to_unsigned(n, 5));
+    end function;
+begin
+
+    -- ---------------- sincronizacion de entradas de la tarjeta -------------
+    process(CLOCK_50)
+    begin
+        if rising_edge(CLOCK_50) then
+            rst_s1 <= not BUTTON(0);
+            rst    <= rst_s1;
+            sw0_s1 <= SW(0);
+            sw0_s  <= sw0_s1;
+            b1_s1  <= BUTTON(1);
+            b1_s2  <= b1_s1;
+            b1_ant <= b1_s2;
+            prueba_pulso <= b1_ant and not b1_s2;   -- flanco de bajada = presionado
+            sw9_s1 <= SW(9);
+            sw9_s  <= sw9_s1;
+            if rst = '1' then
+                hubo_tecla <= '0';
+            elsif tecla_valida = '1' then
+                ultima_tecla <= tecla_cod;          -- para el modo prueba de teclado
+                hubo_tecla   <= '1';
+            end if;
+        end if;
+    end process;
+
+    -- ---------------- modulos ----------------
+    ficha_sensor <= not FICHA_N;
+
+    u_ficha: entity work.entrada_ficha
+        port map (clk => CLOCK_50, rst => rst, ficha_n => ficha_sensor,
+                  pulso => ficha_pulso, ocupado => ficha_ocup);
+
+    u_teclado: entity work.teclado_4x4
+        port map (clk => CLOCK_50, rst => rst,
+                  filas => KP_FILA, columnas => KP_COL,
+                  tecla_valida => tecla_valida, tecla_cod => tecla_cod);
+
+    u_fsm: entity work.fsm_expendedora
+        port map (clk => CLOCK_50, rst => rst,
+                  ficha => ficha_pulso,
+                  tecla_valida => tecla_valida, tecla_cod => tecla_cod,
+                  modo_mant => sw0_s, motor_ocupado => motor_ocupado,
+                  iniciar_motor => ini_fsm,
+                  estado_o => estado, saldo_o => saldo, sel_o => sel,
+                  precio_o => precio, stock_o => stock, total_o => total);
+
+    -- Boton de prueba: arranca el motor elegido con SW3..SW1
+    gen_prueba: for k in 1 to N_PROD generate
+        ini_prueba(k) <= '1' when prueba_pulso = '1' and motor_ocupado = '0'
+                                  and to_integer(unsigned(SW(3 downto 1))) = k
+                         else '0';
+    end generate;
+
+    ini_motor <= ini_fsm or ini_prueba;
+
+    gen_motores: for k in 1 to N_PROD generate
+        u_motor: entity work.motor_paso
+            generic map (SENTIDO => SENTIDOS(k))
+            port map (clk => CLOCK_50, rst => rst,
+                      iniciar => ini_motor(k),
+                      fases => fases(k), ocupado => ocup_motor(k));
+    end generate;
+
+    motor_ocupado <= '0' when ocup_motor = (ocup_motor'range => '0') else '1';
+
+    MOTOR1 <= fases(1);  MOTOR2 <= fases(2);  MOTOR3 <= fases(3);
+    MOTOR4 <= fases(4);  MOTOR5 <= fases(5);  MOTOR6 <= fases(6);
+
+    u_escenas: entity work.escenas
+        port map (clk => CLOCK_50, rst => rst,
+                  estado => estado, saldo => saldo, total => total,
+                  escena => p_escena, rebote => p_rebote,
+                  ov_en => p_ov_en, ov_x => p_ov_x, ov_y => p_ov_y, ov_n => p_ov_n,
+                  ov_d0 => p_d0, ov_d1 => p_d1, ov_d2 => p_d2);
+
+    u_tft: entity work.tft_ili9225
+        port map (clk => CLOCK_50, rst => rst,
+                  escena => p_escena, rebote => p_rebote,
+                  ov_en => p_ov_en, ov_x => p_ov_x, ov_y => p_ov_y, ov_n => p_ov_n,
+                  ov_d0 => p_d0, ov_d1 => p_d1, ov_d2 => p_d2,
+                  tft_cs => TFT_CS, tft_rs => TFT_RS, tft_rst => TFT_RST,
+                  tft_sck => TFT_SCK, tft_sdi => TFT_SDI, listo => tft_listo);
+
+    -- ---------------- displays de 7 segmentos ----------------
+    process(estado, sel, precio, saldo, total, sw9_s, ultima_tecla, hubo_tecla)
+    begin
+        if sw9_s = '1' then
+            -- PRUEBA DE TECLADO: HEX3 = "r", HEX0 = ultima tecla (E = *, F = #)
+            hex_val(3) <= "10011";
+            hex_val(2) <= H_APAGADO;
+            hex_val(1) <= H_APAGADO;
+            if hubo_tecla = '1' then
+                hex_val(0) <= '0' & ultima_tecla;
+            else
+                hex_val(0) <= H_GUION;
+            end if;
+        elsif estado = MANTENIM then
+            hex_val(3) <= H_APAGADO;
+            hex_val(2) <= h(total / 100);
+            hex_val(1) <= h((total / 10) mod 10);
+            hex_val(0) <= h(total mod 10);
+        else
+            if sel = 0 then
+                hex_val(3) <= H_GUION;
+                hex_val(2) <= H_APAGADO;
+            else
+                hex_val(3) <= h(sel);
+                hex_val(2) <= h(precio);
+            end if;
+            hex_val(1) <= h(saldo / 10);
+            hex_val(0) <= h(saldo mod 10);
+        end if;
+    end process;
+
+    u_hex0: entity work.deco7seg port map (valor => hex_val(0), seg => HEX0_D);
+    u_hex1: entity work.deco7seg port map (valor => hex_val(1), seg => HEX1_D);
+    u_hex2: entity work.deco7seg port map (valor => hex_val(2), seg => HEX2_D);
+    u_hex3: entity work.deco7seg port map (valor => hex_val(3), seg => HEX3_D);
+    HEX0_DP <= '1';  HEX1_DP <= '1';  HEX2_DP <= '1';  HEX3_DP <= '1';   -- puntos apagados
+
+    -- ---------------- LEDs ----------------
+    -- con SW9 arriba: LEDG3..LEDG0 se encienden cuando la columna 4..1 del teclado
+    -- recibe senal (tecla presionada)
+    LEDG(5 downto 0) <= ocup_motor when sw9_s = '0' else
+                        "00" & (not KP_COL(3)) & (not KP_COL(2)) & (not KP_COL(1)) & (not KP_COL(0));
+    LEDG(6) <= '0';
+    LEDG(7) <= tft_listo;
+    LEDG(8) <= sw9_s;
+    LEDG(9) <= ficha_ocup;
+
+end architecture;

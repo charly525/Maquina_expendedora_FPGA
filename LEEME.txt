@@ -1,0 +1,30 @@
+MAQUINA EXPENDEDORA - DE0 (Cyclone III EP3C16F484C6) - Quartus II 13.1
+
+Archivos de diseno (agregarlos todos al proyecto):
+  maquina_pkg.vhd          constantes: precios, inventario, estados
+  entrada_ficha.vhd        microswitch de la ficha (sincronizador + FSM antirrebote)
+  teclado_4x4.vhd          escaner del teclado de membrana
+  fsm_expendedora.vhd      FSM principal + saldo + inventario + total
+  motor_paso.vhd           un motor 28BYJ-48 (se usa 6 veces)
+  deco7seg.vhd             displays de 7 segmentos
+  pantallas_pkg.vhd        paleta y posiciones (GENERADO por graficos/gen_pantallas.py)
+  escenas.vhd              que imagen se ve segun el estado + animacion de reposo
+  tft_ili9225.vhd          controlador SPI de la pantalla, dibuja las imagenes de la ROM
+  pantallas.mif            las 9 pantallas pixel art (GENERADO)
+  digitos.mif              digitos grandes para creditos/saldo/total (GENERADO)
+  maquina_expendedora.vhd  TOP (Top-Level Entity)
+  maquina_expendedora.qsf  pines y configuracion (generado con gen_pines.py)
+  maquina_expendedora.sdc  reloj de 50 MHz
+
+Simulacion (ModelSim): sim/tb_entrada_ficha.vhd, sim/tb_fsm_expendedora.vhd,
+sim/tb_tft.vhd (captura un cuadro de la pantalla en frame_sim.txt;
+graficos/verificar_frame.py lo compara con la vista previa)
+NO agregar los testbenches al proyecto de sintesis.
+
+Para cambiar precios: maquina_pkg.vhd -> PRECIOS.
+Para cambiar cuanto gira cada espiral: motor_paso.vhd -> N_PASOS (2048 = 1 vuelta).
+
+Para cambiar los dibujos o los textos de la pantalla:
+  cd graficos ; python3 gen_pantallas.py
+  y copiar pantallas.mif, digitos.mif y pantallas_pkg.vhd a esta carpeta.
+La version anterior (solo texto) quedo en version_texto/.

@@ -1,0 +1,35 @@
+
+State Machine - |maquina_expendedora|tft_ili9225:u_tft|seq
+Name seq.Q_PIXELES seq.Q_VENTANA seq.Q_PAUSA seq.Q_INIT seq.Q_RST_ESPERA seq.Q_RST_BAJO 
+seq.Q_RST_BAJO 0 0 0 0 0 0 
+seq.Q_RST_ESPERA 0 0 0 0 1 1 
+seq.Q_INIT 0 0 0 1 0 1 
+seq.Q_PAUSA 0 0 1 0 0 1 
+seq.Q_VENTANA 0 1 0 0 0 1 
+seq.Q_PIXELES 1 0 0 0 0 1 
+
+State Machine - |maquina_expendedora|tft_ili9225:u_tft|spi_est
+Name spi_est.S_FIN spi_est.S_ALTO spi_est.S_BAJO spi_est.S_IDLE 
+spi_est.S_IDLE 0 0 0 0 
+spi_est.S_BAJO 0 0 1 1 
+spi_est.S_ALTO 0 1 0 1 
+spi_est.S_FIN 1 0 0 1 
+
+State Machine - |maquina_expendedora|fsm_expendedora:u_fsm|estado
+Name estado.MANTENIM estado.SOBRA estado.AGOTADO estado.SIN_SALDO estado.GRACIAS estado.GIRANDO estado.DISPENSAR estado.VERIFICAR estado.REPOSO 
+estado.REPOSO 0 0 0 0 0 0 0 0 0 
+estado.VERIFICAR 0 0 0 0 0 0 0 1 1 
+estado.DISPENSAR 0 0 0 0 0 0 1 0 1 
+estado.GIRANDO 0 0 0 0 0 1 0 0 1 
+estado.GRACIAS 0 0 0 0 1 0 0 0 1 
+estado.SIN_SALDO 0 0 0 1 0 0 0 0 1 
+estado.AGOTADO 0 0 1 0 0 0 0 0 1 
+estado.SOBRA 0 1 0 0 0 0 0 0 1 
+estado.MANTENIM 1 0 0 0 0 0 0 0 1 
+
+State Machine - |maquina_expendedora|entrada_ficha:u_ficha|estado
+Name estado.SOLTAR estado.BLOQUEO estado.CONFIRMA estado.ESPERA 
+estado.ESPERA 0 0 0 0 
+estado.CONFIRMA 0 0 1 1 
+estado.BLOQUEO 0 1 0 1 
+estado.SOLTAR 1 0 0 1 
